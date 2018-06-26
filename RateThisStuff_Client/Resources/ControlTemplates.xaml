@@ -1,0 +1,41 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTemplate x:Key="HeaderedTextbox" TargetType="HeaderedContentControl">
+        <Grid MaxHeight="40">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <ContentControl Content="{TemplateBinding Header}" Grid.Row="0" FontSize="18" Foreground="#FF4767AE" IsTabStop="False"/>
+            <ContentControl Grid.Row="1" IsTabStop="False">
+                <TextBox Text="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}" BorderThickness="0,0,0,1" VerticalContentAlignment="Bottom" IsTabStop="True" IsReadOnly="{Binding Tag, RelativeSource={RelativeSource TemplatedParent}}"/>
+            </ContentControl>
+        </Grid>
+    </ControlTemplate>
+    <ControlTemplate x:Key="HeaderedPasswordBox" TargetType="HeaderedContentControl">
+        <Grid MaxHeight="40">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <ContentControl Content="{TemplateBinding Header}" Grid.Row="0" FontSize="18" Foreground="#FF4767AE" IsTabStop="False"/>
+            <ContentControl Grid.Row="1" IsTabStop="False">
+                <PasswordBox x:Name="InnerPasswordBox"  BorderThickness="0,0,0,1" VerticalContentAlignment="Bottom" IsTabStop="True"/>
+            </ContentControl>
+        </Grid>
+    </ControlTemplate>
+    <ControlTemplate x:Key="HeaderedCommentBox" TargetType="HeaderedContentControl">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <ContentControl Content="{TemplateBinding Header}" Grid.Row="0" FontSize="18" Foreground="#FF4767AE" IsTabStop="False"/>
+            <ContentControl Grid.Row="1">
+                <TextBox Text="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" AcceptsReturn="True" IsTabStop="True"/>
+            </ContentControl>
+        </Grid>
+    </ControlTemplate>
+    <BooleanToVisibilityConverter x:Key="VisibilityConverter"/>
+    <NullableBoolConverter x:Key="BoolConverter"/>
+</ResourceDictionary>

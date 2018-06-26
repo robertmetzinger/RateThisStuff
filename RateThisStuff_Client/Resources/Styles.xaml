@@ -1,0 +1,50 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:customControls="clr-namespace:RateThisStuff_Client.CustomControls">
+    <Style TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontFamily" Value="Verdana" />
+    </Style>
+    <Style TargetType="{x:Type Control}" x:Key="FontStyling">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontFamily" Value="Verdana" />
+    </Style>
+    <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource FontStyling}">
+        <Setter Property="AutoGenerateColumns" Value="False"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="ColumnWidth" Value="*"/>
+        <Setter Property="GridLinesVisibility" Value="Vertical"/>
+        <Setter Property="RowBackground" Value="LightGray"/>
+        <Setter Property="AlternatingRowBackground" Value="Transparent"/>
+        <Setter Property="SelectionMode" Value="Single"/>
+    </Style>
+    <Style TargetType="{x:Type DataGridColumnHeader}">
+        <Setter Property="Foreground" Value="#FF4767AE"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    </Style>
+    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource FontStyling}">
+        <Setter Property="Background" Value="#FF4767AE"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="5"/>
+    </Style>
+    <Style TargetType="{x:Type Label}" BasedOn="{StaticResource FontStyling}" >
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Background" Value="LightGray"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    </Style>
+    <Style TargetType="{x:Type customControls:Rating}">
+        <Setter Property="StarOnColor" Value="#FF333333"/>
+        <Setter Property="StarOffColor" Value="White"/>
+        <Setter Property="StarStrokeColor" Value="#FF333333"/>
+    </Style>
+    <Style TargetType="{x:Type HeaderedContentControl}">
+        <Setter Property="IsTabStop" Value="False"/>
+    </Style>
+    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource FontStyling}" />
+    <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource FontStyling}" />
+</ResourceDictionary>
