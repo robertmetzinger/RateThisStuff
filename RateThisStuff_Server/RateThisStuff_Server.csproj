@@ -110,9 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Database\rateMe_filled.db3">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="Database\rateMe_filled.db3" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

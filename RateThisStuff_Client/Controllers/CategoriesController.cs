@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
+using RateThisStuff_Client.RateThisStuffServiceReference;
 using RateThisStuff_Client.ViewModels;
 using RateThisStuff_Client.Views;
 
@@ -19,27 +21,49 @@ namespace RateThisStuff_Client.Controllers
 
         public async void LoadData()
         {
+            SessionProvider.Current.CanNewEditDelete = true;
+            SessionProvider.Current.CanSave = false;
             _viewModel.Categories = await SessionProvider.Current.Proxy.GetAllCategoriesAsync();
         }
 
         public void ExecuteDeleteCommand(object obj)
         {
-            throw new System.NotImplementedException();
+            bool deleted = false;
+            MessageBoxResult result = MessageBox.Show("Soll diese Kategorie wirklich gelöscht werden?\n Alle Items zu dieser Kategorie werden ebenfalls gelöscht", "Kategorie löschen",
+                MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                deleted = SessionProvider.Current.Proxy.DeleteCategoryAsync(_viewModel.SelectedCategory).Result;
+            }
+
+            if (deleted)
+            {
+                MessageBox.Show("Die Kategorie wurde erfolgreich gelöscht.", "Löschen erfolgreich");
+            }
+            else
+            {
+                MessageBox.Show("Die Kategorie konnte nicht gelöscht werden", "Löschen fehlgeschlagen");
+            }
         }
 
         public void ExecuteEditCommand(object obj)
         {
-            throw new System.NotImplementedException();
+            SessionProvider.Current.CanNewEditDelete = false;
+            SessionProvider.Current.CanSave = true;
         }
 
         public void ExecuteNewCommand(object obj)
         {
-            throw new System.NotImplementedException();
+            _viewModel.SelectedCategory = new Category();
+            SessionProvider.Current.CanNewEditDelete = false;
+            SessionProvider.Current.CanSave = true;
         }
 
         public void ExecuteSaveCommand(object obj)
         {
-            throw new System.NotImplementedException();
+            SessionProvider.Current.Proxy.SaveOrUpdateCategoryAsync(_viewModel.SelectedCategory);
+            SessionProvider.Current.CanNewEditDelete = true;
+            SessionProvider.Current.CanSave = false;
         }
     }
 }

@@ -18,6 +18,6 @@
         <TextBlock Grid.Row="1" Text="{Binding Message}"/>
         <HeaderedContentControl Grid.Row="2" Margin="0,10,0,0" Header="{StaticResource Username}" Template="{DynamicResource HeaderedTextbox}" Content="{Binding Path=UsernameInput, Mode=TwoWay}"/>
         <HeaderedContentControl x:Name="PasswordField" Grid.Row="3" Margin="0,10,0,0" Header="{StaticResource Password}" Template="{DynamicResource HeaderedPasswordBox}"/>
-        <Button Grid.Row="4" Margin="0,10,0,0" Content="{StaticResource Login}" Command="{Binding LoginCommand}"/>
+        <Button Grid.Row="4" Margin="0,10,0,0" Content="{StaticResource Login}" Command="{Binding LoginCommand}" IsDefault="True"/>
     </Grid>
 </Window>

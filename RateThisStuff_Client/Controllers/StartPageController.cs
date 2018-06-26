@@ -21,28 +21,18 @@ namespace RateThisStuff_Client.Controllers
 
         public async void LoadData()
         {
+            SessionProvider.Current.CanNewEditDelete = false;
+            SessionProvider.Current.CanSave = false;
             _viewModel.Categories = await SessionProvider.Current.Proxy.GetAllCategoriesAsync();
         }
 
-        public void ExecuteDeleteCommand(object obj)
-        {
-            throw new System.NotImplementedException();
-        }
+        public void ExecuteNewCommand(object obj) { }
 
-        public void ExecuteEditCommand(object obj)
-        {
-            throw new System.NotImplementedException();
-        }
+        public void ExecuteEditCommand(object obj) { }
 
-        public void ExecuteNewCommand(object obj)
-        {
-            throw new System.NotImplementedException();
-        }
+        public void ExecuteSaveCommand(object obj) { }
 
-        public void ExecuteSaveCommand(object obj)
-        {
-            throw new System.NotImplementedException();
-        }
+        public void ExecuteDeleteCommand(object obj) { }
 
         public void ExecuteChangePasswordCommand(object obj)
         {

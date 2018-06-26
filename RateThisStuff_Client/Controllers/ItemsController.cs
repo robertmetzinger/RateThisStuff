@@ -4,10 +4,11 @@ using RateThisStuff_Client.Views;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
+using RateThisStuff_Client.RateThisStuffServiceReference;
 
 namespace RateThisStuff_Client.Controllers
 {
-    class ItemsController:IPageController
+    class ItemsController : IPageController
     {
         private ItemsViewModel _viewModel;
 
@@ -25,27 +26,49 @@ namespace RateThisStuff_Client.Controllers
 
         public async void LoadData()
         {
+            SessionProvider.Current.CanNewEditDelete = true;
+            SessionProvider.Current.CanSave = false;
             _viewModel.Items = await SessionProvider.Current.Proxy.GetAllItemsByCategoryAsync(SessionProvider.Current.Category);
         }
 
         public void ExecuteDeleteCommand(object obj)
         {
-            throw new System.NotImplementedException();
+            MessageBoxResult result = MessageBox.Show("Soll dieses Item wirklich gelöscht werden?\n Alle Bewertungen zu dem Item werden ebenfalls gelöscht", "Item löschen",
+                MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                bool deleted = SessionProvider.Current.Proxy.DeleteItemAsync(_viewModel.SelectedItem).Result;
+
+                if (deleted)
+                {
+                    MessageBox.Show("Das Item wurde erfolgreich gelöscht.", "Löschen erfolgreich");
+                }
+                else
+                {
+                    MessageBox.Show("Das Item konnte nicht gelöscht werden", "Löschen fehlgeschlagen");
+                }
+            }
         }
 
         public void ExecuteEditCommand(object obj)
         {
-            throw new System.NotImplementedException();
+            SessionProvider.Current.CanNewEditDelete = false;
+            SessionProvider.Current.CanSave = true;
         }
 
         public void ExecuteNewCommand(object obj)
         {
-            throw new System.NotImplementedException();
+            _viewModel.SelectedItem = new Item();
+            _viewModel.SelectedItem.Category = SessionProvider.Current.Category;
+            SessionProvider.Current.CanNewEditDelete = false;
+            SessionProvider.Current.CanSave = true;
         }
 
         public void ExecuteSaveCommand(object obj)
         {
-            throw new System.NotImplementedException();
+            SessionProvider.Current.Proxy.SaveOrUpdateItemAsync(_viewModel.SelectedItem);
+            SessionProvider.Current.CanNewEditDelete = true;
+            SessionProvider.Current.CanSave = false;
         }
 
         public void ExecuteRateCommand(object obj)
@@ -73,7 +96,7 @@ namespace RateThisStuff_Client.Controllers
             else MessageBox.Show("Beim Löschen ist ein Fehler aufgetreten", "Löschen fehlgeschlagen");
         }
 
-        
+
         private async void SelectedItemChanged(object sender, PropertyChangedEventArgs e)
         {
             _viewModel.Ratings = await SessionProvider.Current.Proxy.GetAllRatingsForItemAsync(_viewModel.SelectedItem);

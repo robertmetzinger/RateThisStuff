@@ -10,7 +10,7 @@ namespace RateThisStuff_Client.ViewModels
     {
         public ICommand RateCommand { get; set; }
         public ICommand RemoveRatingCommand { get; set; }
-        private Item _selectedItem = new Item();
+        private Item _selectedItem;
         private ObservableCollection<Item> _items;
         private ObservableCollection<Rating> _ratings;
         private Rating _ratingForItem;

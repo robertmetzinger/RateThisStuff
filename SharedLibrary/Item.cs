@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace SharedLibrary
 {
@@ -6,22 +7,22 @@ namespace SharedLibrary
     public class Item
     {
         [DataMember]
-        public int Id;
+        public int Id { get; set; }
 
         [DataMember]
-        public string Name;
+        public string Name { get; set; }
 
         [DataMember]
-        public int Version;
+        public int Version { get; set; }
 
         [DataMember]
-        public Category Category;
+        public Category Category { get; set; }
 
         [DataMember]
-        public double AverageRating;
+        public double AverageRating { get; set; }
 
         [DataMember]
-        public int RatingsCount;
+        public int RatingsCount { get; set; }
 
         protected bool Equals(Item other)
         {
@@ -33,7 +34,7 @@ namespace SharedLibrary
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
-            return Equals((Item) obj);
+            return Equals((Item)obj);
         }
 
         public override int GetHashCode()

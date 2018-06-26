@@ -2,7 +2,6 @@
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
-using RateThisStuff_Client.Views;
 
 namespace RateThisStuff_Client.CustomControls
 {

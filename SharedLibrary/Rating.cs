@@ -6,22 +6,22 @@ namespace SharedLibrary
     public class Rating
     {
         [DataMember]
-        public int Id;
+        public int Id { get; set; }
 
         [DataMember]
-        public int Score;
+        public int Score { get; set; }
 
         [DataMember]
-        public string Comment;
+        public string Comment { get; set; }
 
         [DataMember]
-        public int Version;
+        public int Version { get; set; }
 
         [DataMember]
-        public User User;
+        public User User { get; set; }
 
         [DataMember]
-        public Item Item;
+        public Item Item { get; set; }
 
         protected bool Equals(Rating other)
         {

@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace SharedLibrary
 {
@@ -6,13 +7,13 @@ namespace SharedLibrary
     public class Category
     {
         [DataMember]
-        public int Id;
+        public int Id { get; set; }
 
         [DataMember]
-        public string Name;
+        public string Name { get; set; }
 
         [DataMember]
-        public int Version;
+        public int Version { get; set; }
 
         protected bool Equals(Category other)
         {

@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace SharedLibrary
 {
@@ -6,25 +7,25 @@ namespace SharedLibrary
     public class User
     {
         [DataMember]
-        public int Id;
+        public int Id { get; set; }
 
         [DataMember]
-        public string Username;
+        public string Username { get; set; }
 
         [DataMember]
-        public string Firstname;
+        public string Firstname { get; set; }
 
         [DataMember]
-        public string Lastname;
+        public string Lastname { get; set; }
 
         [DataMember]
-        public string Password;
+        public string Password { get; set; }
 
         [DataMember]
-        public bool IsAdmin;
+        public bool IsAdmin { get; set; }
 
         [DataMember]
-        public int Version;
+        public int Version { get; set; }
 
         protected bool Equals(User other)
         {

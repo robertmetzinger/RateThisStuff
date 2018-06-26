@@ -3,6 +3,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:qc="clr-namespace:QuickConverter;assembly=QuickConverter"
+      xmlns:client="clr-namespace:RateThisStuff_Client"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CategoriesPage">
@@ -13,14 +15,14 @@
             <RowDefinition Height="5"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <DataGrid ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}" ColumnWidth="*">
+        <DataGrid ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}" ColumnWidth="*" IsEnabled="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanNewEditDelete}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="{StaticResource Name}" Binding="{Binding Name}"/>
             </DataGrid.Columns>
         </DataGrid>
         <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch"/>
         <Grid Row="2" Margin="120,20">
-            <HeaderedContentControl Grid.Row="0" Header="{StaticResource Name}" Template="{DynamicResource HeaderedTextbox}" Content="{Binding SelectedCategory.Name}"/>
+            <HeaderedContentControl Grid.Row="0" Header="{StaticResource Name}" Template="{DynamicResource HeaderedTextbox}" Content="{Binding SelectedCategory.Name, Mode=TwoWay}" Tag="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanNewEditDelete}"/>
         </Grid>
     </Grid>
 </Page>

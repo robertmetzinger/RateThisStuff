@@ -14,7 +14,7 @@
             <RowDefinition Height="5"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-        <DataGrid ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser}" ColumnWidth="*" IsEnabled="{qc:Binding '!$P', P={Binding Source={x:Static client:SessionProvider.Current}, Path=EditOrNewMode}}">
+        <DataGrid ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser}" ColumnWidth="*" IsEnabled="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanNewEditDelete}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Benutzername" Binding="{Binding Username}"/>
                 <DataGridTextColumn Header="Vorname" Binding="{Binding Firstname}"/>
@@ -31,10 +31,10 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <HeaderedContentControl Grid.Row="0" Header="Benutzername" Template="{DynamicResource HeaderedTextbox}" Content="{Binding SelectedUser.Username, Mode=TwoWay}" Tag="{qc:Binding '!$P', P={Binding Source={x:Static client:SessionProvider.Current}, Path=EditOrNewMode}}"/>
-                <HeaderedContentControl Grid.Row="1" Header="Vorname" Template="{DynamicResource HeaderedTextbox}" Content="{Binding SelectedUser.Firstname, Mode=TwoWay}" Tag="{qc:Binding '!$P', P={Binding Source={x:Static client:SessionProvider.Current}, Path=EditOrNewMode}}"/>
-                <HeaderedContentControl Grid.Row="2" Header="Nachname" Template="{DynamicResource HeaderedTextbox}" Content="{Binding SelectedUser.Lastname, Mode=TwoWay}" Tag="{qc:Binding '!$P', P={Binding Source={x:Static client:SessionProvider.Current}, Path=EditOrNewMode}}"/>
-                <CheckBox Grid.Row="3" Content="Administrator" Margin="5" VerticalAlignment="Center" IsChecked="{Binding SelectedUser.IsAdmin, Mode=TwoWay}" IsEnabled="{Binding Source={x:Static client:SessionProvider.Current}, Path=EditOrNewMode}"/>
+                <HeaderedContentControl Grid.Row="0" Header="Benutzername" Template="{DynamicResource HeaderedTextbox}" Content="{Binding SelectedUser.Username, Mode=TwoWay}" Tag="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanNewEditDelete}"/>
+                <HeaderedContentControl Grid.Row="1" Header="Vorname" Template="{DynamicResource HeaderedTextbox}" Content="{Binding SelectedUser.Firstname, Mode=TwoWay}" Tag="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanNewEditDelete}"/>
+                <HeaderedContentControl Grid.Row="2" Header="Nachname" Template="{DynamicResource HeaderedTextbox}" Content="{Binding SelectedUser.Lastname, Mode=TwoWay}" Tag="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanNewEditDelete}"/>
+                <CheckBox Grid.Row="3" Content="Administrator" Margin="5" VerticalAlignment="Center" IsChecked="{Binding SelectedUser.IsAdmin, Mode=TwoWay}" IsEnabled="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanSave}"/>
             </Grid>
         </GroupBox>
     </Grid>
