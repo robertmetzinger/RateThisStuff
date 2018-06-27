@@ -15,14 +15,14 @@
             <RowDefinition Height="5"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <DataGrid ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}" ColumnWidth="*" IsEnabled="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanNewEditDelete}">
+        <DataGrid ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}" ColumnWidth="*" IsEnabled="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanNew}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="{StaticResource Name}" Binding="{Binding Name}"/>
             </DataGrid.Columns>
         </DataGrid>
         <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch"/>
         <Grid Row="2" Margin="120,20">
-            <HeaderedContentControl Grid.Row="0" Header="{StaticResource Name}" Template="{DynamicResource HeaderedTextbox}" Content="{Binding SelectedCategory.Name, Mode=TwoWay}" Tag="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanNewEditDelete}"/>
+            <HeaderedContentControl Grid.Row="0" Header="{StaticResource Name}" Template="{DynamicResource HeaderedTextbox}" Content="{Binding SelectedCategory.Name, Mode=TwoWay}" Tag="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanNew}"/>
         </Grid>
     </Grid>
 </Page>

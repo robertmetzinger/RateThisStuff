@@ -21,7 +21,8 @@ namespace RateThisStuff_Client.Controllers
 
         public async void LoadData()
         {
-            SessionProvider.Current.CanNewEditDelete = true;
+            SessionProvider.Current.CanNew = true;
+            SessionProvider.Current.CanEditAndDelete = false;
             SessionProvider.Current.CanSave = false;
             _viewModel.Users = await SessionProvider.Current.Proxy.GetAllUsersAsync();
         }
@@ -37,6 +38,7 @@ namespace RateThisStuff_Client.Controllers
                 if (deleted)
                 {
                     MessageBox.Show("Der Benutzer wurde erfolgreich gelöscht.", "Löschen erfolgreich");
+                    LoadData();
                 }
                 else
                 {
@@ -47,22 +49,25 @@ namespace RateThisStuff_Client.Controllers
 
         public void ExecuteEditCommand(object obj)
         {
-            SessionProvider.Current.CanNewEditDelete = false;
+            SessionProvider.Current.CanNew = false;
+            SessionProvider.Current.CanEditAndDelete = false;
             SessionProvider.Current.CanSave = true;
         }
 
         public void ExecuteNewCommand(object obj)
         {
             _viewModel.SelectedUser = new User();
-            SessionProvider.Current.CanNewEditDelete = false;
+            SessionProvider.Current.CanNew = false;
+            SessionProvider.Current.CanEditAndDelete = false;
             SessionProvider.Current.CanSave = true;
         }
 
         public void ExecuteSaveCommand(object obj)
         {
             SessionProvider.Current.Proxy.SaveOrUpdateUserAsync(_viewModel.SelectedUser);
-            SessionProvider.Current.CanNewEditDelete = true;
+            SessionProvider.Current.CanNew = true;
             SessionProvider.Current.CanSave = false;
+            LoadData();
         }
     }
 }

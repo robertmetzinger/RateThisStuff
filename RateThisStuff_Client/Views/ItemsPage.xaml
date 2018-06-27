@@ -15,7 +15,7 @@
             <RowDefinition Height="5"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-        <DataGrid ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" ColumnWidth="*" IsEnabled="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanNewEditDelete}">
+        <DataGrid ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" ColumnWidth="*" IsEnabled="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanNew}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="{StaticResource Name}" Binding="{Binding Name}"/>
             </DataGrid.Columns>
@@ -38,14 +38,14 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <HeaderedContentControl Grid.Row="0" Header="{StaticResource Name}" Template="{DynamicResource HeaderedTextbox}" Content="{Binding SelectedItem.Name, Mode=TwoWay}"  Tag="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanNewEditDelete}"/>
-                <Button Grid.Row="1" Margin="5" Command="{Binding RateCommand}" IsEnabled="{qc:Binding '$P == null', P={Binding RatingForItem}}">
+                <HeaderedContentControl Grid.Row="0" Header="{StaticResource Name}" Template="{DynamicResource HeaderedTextbox}" Content="{Binding SelectedItem.Name, Mode=TwoWay}"  Tag="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanNew}"/>
+                <Button Grid.Row="1" Margin="5" Command="{Binding RateCommand}" IsEnabled="{Binding CanRate}">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="../Resources/baseline_star_white_18dp.png"/>
                         <TextBlock Text="{StaticResource RateThis}"/>
                     </StackPanel>
                 </Button>
-                <Button Grid.Row="2" Margin="5" Command="{Binding RemoveRatingCommand}" IsEnabled="{qc:Binding '$P != null', P={Binding RatingForItem}}">
+                <Button Grid.Row="2" Margin="5" Command="{Binding RemoveRatingCommand}" IsEnabled="{Binding CanRemoveRating}">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="../Resources/baseline_delete_white_18dp.png"/>
                         <TextBlock Text="{StaticResource RemoveRating}"/>

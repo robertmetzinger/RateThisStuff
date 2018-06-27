@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RateThisStuff_Client", "Rat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RateThisStuffTests", "RateThisStuffTests\RateThisStuffTests.csproj", "{0C53CAAD-0F38-4696-9CBB-86BFA19719C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RateThisStuff_ServerConsole", "RateThisStuff_ServerConsole\RateThisStuff_ServerConsole.csproj", "{AD7A410F-76A3-4570-A24C-ABD0C3C3D1BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,10 @@ Global
 		{0C53CAAD-0F38-4696-9CBB-86BFA19719C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C53CAAD-0F38-4696-9CBB-86BFA19719C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C53CAAD-0F38-4696-9CBB-86BFA19719C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD7A410F-76A3-4570-A24C-ABD0C3C3D1BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD7A410F-76A3-4570-A24C-ABD0C3C3D1BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD7A410F-76A3-4570-A24C-ABD0C3C3D1BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD7A410F-76A3-4570-A24C-ABD0C3C3D1BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

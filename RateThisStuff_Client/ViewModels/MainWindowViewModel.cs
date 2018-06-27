@@ -9,6 +9,7 @@ namespace RateThisStuff_Client.ViewModels
     {
         public string Username { get; set; } = SessionProvider.Current.User.Username;
         public bool IsAdmin { get; set; } = SessionProvider.Current.User.IsAdmin;
+        public ICommand LogoutCommand { get; set; }
 
         private ListBoxItem _navigationItem;
         private ICommand _deleteCommand;
@@ -60,6 +61,7 @@ namespace RateThisStuff_Client.ViewModels
             }
         }
 
+
         public ListBoxItem NavigationItem
         {
             get => _navigationItem;
@@ -78,5 +80,12 @@ namespace RateThisStuff_Client.ViewModels
         }
 
         public event PropertyChangedEventHandler NavigationItemChanged;
+
+        public void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SelectionChanged?.Invoke(this, new SelectionChangedEventArgs(e.RoutedEvent, e.RemovedItems, e.AddedItems));
+        }
+
+        public event SelectionChangedEventHandler SelectionChanged;
     }
 }

@@ -30,17 +30,24 @@
                 <RowDefinition/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Right">
+            <StackPanel Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2">
+                <Button HorizontalAlignment="Right" Background="Transparent" BorderBrush="Transparent" Command="{Binding LogoutCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../Resources/baseline_power_settings_new_black_18dp.png"/>
+                    </StackPanel>
+                </Button>
+                <TextBlock HorizontalAlignment="Right">
                 <Run Text="Eingeloggt als:"/>
                 <Run Text="{Binding Username}"/>
-            </TextBlock>
-            <Button Grid.Row="1" Grid.Column="0" Command="{Binding NewCommand}" IsEnabled="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanNewEditDelete, Mode=TwoWay}">
+                </TextBlock>
+            </StackPanel>
+            <Button Grid.Row="1" Grid.Column="0" Command="{Binding NewCommand}" IsEnabled="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanNew, Mode=TwoWay}">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="../Resources/baseline_add_circle_outline_white_18dp.png"/>
                     <TextBlock Text="{StaticResource New}"/>
                 </StackPanel>
             </Button>
-            <Button Grid.Row="1" Grid.Column="1" Command="{Binding EditCommand}" Margin="5,0,0,0" IsEnabled="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanNewEditDelete, Mode=TwoWay}">
+            <Button Grid.Row="1" Grid.Column="1" Command="{Binding EditCommand}" Margin="5,0,0,0" IsEnabled="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanEditAndDelete, Mode=TwoWay}">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="../Resources/baseline_edit_white_18dp.png"/>
                     <TextBlock Text="{StaticResource Edit}"/>
@@ -52,7 +59,7 @@
                     <TextBlock Text="{StaticResource Save}"/>
                 </StackPanel>
             </Button>
-            <Button Grid.Row="1" Grid.Column="3" Command="{Binding DeleteCommand}" Margin="5,0,0,0" IsEnabled="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanNewEditDelete, Mode=TwoWay}">
+            <Button Grid.Row="1" Grid.Column="3" Command="{Binding DeleteCommand}" Margin="5,0,0,0" IsEnabled="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanEditAndDelete, Mode=TwoWay}">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="../Resources/baseline_delete_white_18dp.png"/>
                     <TextBlock Text="{StaticResource Delete}"/>
@@ -66,16 +73,18 @@
                 <RowDefinition Height="0.2*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <ListBox Grid.Row="0" Grid.Column="0" SelectedItem="{Binding NavigationItem}" SelectedIndex="0">
+            <ListBox Grid.Row="0" Grid.Column="0" SelectedItem="{Binding NavigationItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 <ListBoxItem Content="{StaticResource StartPageName}"/>
                 <ListBoxItem Content="{StaticResource ItemsPageName}" IsEnabled="{qc:Binding '$P != null', P={Binding Source={x:Static client:SessionProvider.Current}, Path=Category}}"/>
                 <ListBoxItem Content="{StaticResource BestRatedPageName}" IsEnabled="{qc:Binding '$P != null', P={Binding Source={x:Static client:SessionProvider.Current}, Path=Category}}"/>
                 <ListBoxItem Content="{StaticResource MostRatedPageName}" IsEnabled="{qc:Binding '$P != null', P={Binding Source={x:Static client:SessionProvider.Current}, Path=Category}}"/>
+                <ListBoxItem Content=""/>
             </ListBox>
             <Label Grid.Row="1" Content="{StaticResource Administration}" Visibility="{Binding Path=IsAdmin, Converter={StaticResource VisibilityConverter}}"/>
             <ListBox Grid.Row="2" Grid.Column="0" SelectedItem="{Binding NavigationItem}" Visibility="{Binding Path=IsAdmin, Converter={StaticResource VisibilityConverter}}">
                 <ListBoxItem Content="{StaticResource UserManagementPageName}"/>
                 <ListBoxItem Content="{StaticResource CategoriesPageName}"/>
+                <ListBoxItem Content=""/>
             </ListBox>
         </Grid>
         <GridSplitter Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch"/>

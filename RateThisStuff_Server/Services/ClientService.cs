@@ -23,7 +23,7 @@ namespace RateThisStuff_Server.Services
 
         public User GetUserByUsername(string username)
         {
-            return GetAllUsers().Find(x => x.Username == username);
+            return GetAllUsers().Find(x => x.Username.ToLower() == username.ToLower());
         }
 
         public List<User> GetAllUsers()
@@ -33,9 +33,12 @@ namespace RateThisStuff_Server.Services
 
         public bool SaveOrUpdateUser(User user)
         {
-            //hash only if user does not already exist
+            //hash only if user does not already exist (Save)
             if (GetUser(user.Id) == null)
             {
+                //Do not save if username already exists
+                if (GetUserByUsername(user.Username) != null) return false;
+                //Give new user default password
                 user.Password = BCrypt.Net.BCrypt.HashPassword("geheim");
             }
             _userService.SaveOrUpdate(user);
@@ -46,6 +49,12 @@ namespace RateThisStuff_Server.Services
         {
             //check if user exists
             if (GetUser(user.Id) == null) return false;
+            //delete all ratings of user
+            var ratingsOfUser = GetAllRatings().FindAll(x => x.User.Equals(user));
+            foreach (var rating in ratingsOfUser)
+            {
+                DeleteRating(rating);
+            }
             _userService.Delete(user);
             return true;
         }
@@ -226,9 +235,9 @@ namespace RateThisStuff_Server.Services
         public Rating GetRatingFromUserForItem(User user, Item item)
         {
             var ratings = GetAllRatingsForItem(item);
-            return (Rating) (from rating in ratings
-                where rating.User.Equals(user)
-                select rating).FirstOrNull();
+            return (Rating)(from rating in ratings
+                            where rating.User.Equals(user)
+                            select rating).FirstOrNull();
         }
 
         #endregion

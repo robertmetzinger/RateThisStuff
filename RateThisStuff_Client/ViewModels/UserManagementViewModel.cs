@@ -28,6 +28,7 @@ namespace RateThisStuff_Client.ViewModels
                 if (Equals(value, _selectedUser)) return;
                 _selectedUser = value;
                 OnPropertyChanged();
+                SessionProvider.Current.CanEditAndDelete = true;
             }
         }
     }

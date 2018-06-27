@@ -11,6 +11,7 @@ namespace RateThisStuff_Client.Controllers
     public class MainWindowController
     {
         private MainWindowViewModel _viewModel;
+        private MainWindow _view;
 
         private Page _page;
         private StartPage _startPage;
@@ -32,14 +33,15 @@ namespace RateThisStuff_Client.Controllers
 
         public void Initialize()
         {
-            MainWindow view = new MainWindow();
+            _view = new MainWindow();
             _viewModel = new MainWindowViewModel();
             InitializePages();
-            _frame = view.Frame;
+            _frame = _view.Frame;
             _frame.Navigated += FrameOnNavigated;
+            _viewModel.LogoutCommand = new RelayCommand(ExecuteLogoutCommand);
             _viewModel.NavigationItemChanged += OnNavigationItemChanged;
-            view.DataContext = _viewModel;
-            view.Show();
+            _view.DataContext = _viewModel;
+            _view.Show();
         }
 
         private void InitializePages()
@@ -63,7 +65,23 @@ namespace RateThisStuff_Client.Controllers
             _categoriesPage = _categoriesController.Initialize() as CategoriesPage;
         }
 
+        public void ExecuteLogoutCommand(object obj)
+        {
+            new LoginWindowController().Initialize();
+            _view.Close();
+        }
+
         private void OnNavigationItemChanged(object sender, PropertyChangedEventArgs e)
+        {
+            ListBoxItem navItem = _viewModel.NavigationItem;
+            if (navItem != null)
+            {
+                var page = navItem.Content.ToString();
+                NavigateTo(page);
+            }
+        }
+
+        private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ListBoxItem navItem = _viewModel.NavigationItem;
             if (navItem != null)

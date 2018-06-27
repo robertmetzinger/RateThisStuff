@@ -13,8 +13,8 @@ namespace RateThisStuff_Server.Mappings
             Map(x => x.Comment).Column("Comment").Length(100);
             OptimisticLock.Version();
             Version(x => x.Version).Column("Version").Not.Nullable();
-            References(x => x.User).Column("UserId").Not.Nullable().Cascade.None().ForeignKey();
             References(x => x.Item).Column("ItemId").Not.Nullable().Cascade.None().ForeignKey();
+            References(x => x.User).Column("UserId").Not.Nullable().Cascade.None().ForeignKey();
         }
     }
 }

@@ -1,4 +1,3 @@
-C:\Users\itmetzr\Desktop\RateThisStuff\RateThisStuff_Server\bin\Debug\Database\rateMe_filled.db3
 C:\Users\itmetzr\Desktop\RateThisStuff\RateThisStuff_Server\bin\Debug\RateThisStuff_Server.dll.config
 C:\Users\itmetzr\Desktop\RateThisStuff\RateThisStuff_Server\bin\Debug\RateThisStuff_Server.dll
 C:\Users\itmetzr\Desktop\RateThisStuff\RateThisStuff_Server\bin\Debug\RateThisStuff_Server.pdb
@@ -46,48 +45,3 @@ C:\Users\itmetzr\Desktop\RateThisStuff\RateThisStuff_Server\obj\Debug\RateThisSt
 C:\Users\itmetzr\Desktop\RateThisStuff\RateThisStuff_Server\obj\Debug\RateThisStuff_Server.csproj.CopyComplete
 C:\Users\itmetzr\Desktop\RateThisStuff\RateThisStuff_Server\obj\Debug\RateThisStuff_Server.dll
 C:\Users\itmetzr\Desktop\RateThisStuff\RateThisStuff_Server\obj\Debug\RateThisStuff_Server.pdb
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\RateThisStuff_Server.dll.config
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\RateThisStuff_Server.dll
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\RateThisStuff_Server.pdb
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\BCrypt.Net-Next.dll
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\SharedLibrary.dll
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\System.Data.SQLite.dll
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\System.Windows.Controls.Input.Toolkit.dll
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\System.Windows.Controls.Layout.Toolkit.dll
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\WPFToolkit.dll
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\Xceed.Wpf.AvalonDock.dll
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\Xceed.Wpf.DataGrid.dll
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\Xceed.Wpf.Toolkit.dll
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\Iesi.Collections.dll
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\SharedLibrary.pdb
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\BCrypt.Net-Next.xml
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\FluentNHibernate.pdb
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\FluentNHibernate.xml
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\NHibernate.pdb
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\NHibernate.xml
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\System.Data.SQLite.xml
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\System.Data.SQLite.dll.config
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\Iesi.Collections.pdb
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\Iesi.Collections.xml
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\obj\Debug\RateThisStuff_Server.csprojAssemblyReference.cache
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\obj\Debug\RateThisStuff_Server.csproj.CoreCompileInputs.cache
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\obj\Debug\RateThisStuff_Server.csproj.CopyComplete
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\obj\Debug\RateThisStuff_Server.dll
-C:\Users\itmetzr\Desktop\Neuer Ordner\RateThisStuff\RateThisStuff_Server\obj\Debug\RateThisStuff_Server.pdb

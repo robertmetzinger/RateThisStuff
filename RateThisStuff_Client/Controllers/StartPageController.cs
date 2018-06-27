@@ -21,7 +21,8 @@ namespace RateThisStuff_Client.Controllers
 
         public async void LoadData()
         {
-            SessionProvider.Current.CanNewEditDelete = false;
+            SessionProvider.Current.CanNew = false;
+            SessionProvider.Current.CanEditAndDelete = false;
             SessionProvider.Current.CanSave = false;
             _viewModel.Categories = await SessionProvider.Current.Proxy.GetAllCategoriesAsync();
         }

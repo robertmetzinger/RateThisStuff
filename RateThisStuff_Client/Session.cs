@@ -6,8 +6,9 @@ namespace RateThisStuff_Client
     public class Session:ViewModelBase
     {
         private Category _category;
-        private bool _canNewEditDelete;
+        private bool _canNew;
         private bool _canSave;
+        private bool _canEditAndDelete;
         public ClientServiceClient Proxy { get; set; } = new ClientServiceClient();
         public User User { get; set; }
 
@@ -22,13 +23,24 @@ namespace RateThisStuff_Client
             }
         }
 
-        public bool CanNewEditDelete
+        public bool CanNew
         {
-            get => _canNewEditDelete;
+            get => _canNew;
             set
             {
-                if (value == _canNewEditDelete) return;
-                _canNewEditDelete = value;
+                if (value == _canNew) return;
+                _canNew = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool CanEditAndDelete
+        {
+            get => _canEditAndDelete;
+            set
+            {
+                if (value == _canEditAndDelete) return;
+                _canEditAndDelete = value;
                 OnPropertyChanged();
             }
         }
