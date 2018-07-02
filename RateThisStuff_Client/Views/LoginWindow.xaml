@@ -15,9 +15,9 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Image Source="../Resources/RateThisStuffLogo.png"/>
-        <TextBlock Grid.Row="1" Text="{Binding Message}"/>
-        <HeaderedContentControl Grid.Row="2" Margin="0,10,0,0" Header="{StaticResource Username}" Template="{DynamicResource HeaderedTextbox}" Content="{Binding Path=UsernameInput, Mode=TwoWay}"/>
-        <HeaderedContentControl x:Name="PasswordField" Grid.Row="3" Margin="0,10,0,0" Header="{StaticResource Password}" Template="{DynamicResource HeaderedPasswordBox}"/>
+        <TextBlock Grid.Row="1" Text="{Binding Message}" TextWrapping="Wrap"/>
+        <HeaderedContentControl x:Name="UsernameField" Grid.Row="2" Margin="0,10,0,0" Header="{StaticResource Username}" Template="{DynamicResource HeaderedTextboxRequired}" Content="{Binding Path=UsernameInput, Mode=TwoWay}"/>
+        <HeaderedContentControl x:Name="PasswordField" Grid.Row="3" Margin="0,10,0,0" Header="{StaticResource Password}" Template="{DynamicResource HeaderedPasswordBoxRequired}"/>
         <Button Grid.Row="4" Margin="0,10,0,0" Content="{StaticResource Login}" Command="{Binding LoginCommand}" IsDefault="True"/>
     </Grid>
 </Window>

@@ -1,4 +1,6 @@
-﻿using RateThisStuff_Client.Framework;
+﻿using System;
+using System.Windows;
+using RateThisStuff_Client.Framework;
 using RateThisStuff_Client.ViewModels;
 using RateThisStuff_Client.Views;
 using System.Windows.Controls;
@@ -21,10 +23,17 @@ namespace RateThisStuff_Client.Controllers
 
         public async void LoadData()
         {
-            SessionProvider.Current.CanNew = false;
-            SessionProvider.Current.CanEditAndDelete = false;
-            SessionProvider.Current.CanSave = false;
-            _viewModel.Categories = await SessionProvider.Current.Proxy.GetAllCategoriesAsync();
+            try
+            {
+                SessionProvider.Current.CanNew = false;
+                SessionProvider.Current.CanEditAndDelete = false;
+                SessionProvider.Current.CanSave = false;
+                _viewModel.Categories = await SessionProvider.Current.Proxy.GetAllCategoriesAsync();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Daten konnten nicht geladen werden", "Fehler");
+            }
         }
 
         public void ExecuteNewCommand(object obj) { }

@@ -1,9 +1,9 @@
-﻿using System;
-using FluentNHibernate.Conventions;
+﻿using FluentNHibernate.Conventions;
+using NHibernate.Util;
 using SharedLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using NHibernate.Util;
 
 namespace RateThisStuff_Server.Services
 {
@@ -75,6 +75,13 @@ namespace RateThisStuff_Server.Services
 
         public bool SaveOrUpdateCategory(Category category)
         {
+            //check if category does not already exists (Save)
+            if (GetCategory(category.Id) == null)
+            {
+                //Do not save if category name already exists
+                var existingCategory = GetAllCategories().Find(x => x.Name == category.Name);
+                if (existingCategory != null) return false;
+            }
             _categoryService.SaveOrUpdate(category);
             return true;
         }
@@ -126,6 +133,13 @@ namespace RateThisStuff_Server.Services
 
         public bool SaveOrUpdateItem(Item item)
         {
+            //check if item already exists (Save)
+            if (GetItem(item.Id) == null)
+            {
+                //Do not save if item name already exists
+                var existingItem = GetAllItems().Find(x => x.Name == item.Name);
+                if (existingItem != null) return false;
+            }
             _itemService.SaveOrUpdate(item);
             return true;
         }

@@ -22,7 +22,7 @@
         </DataGrid>
         <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch"/>
         <Grid Row="2" Margin="120,20">
-            <HeaderedContentControl Grid.Row="0" Header="{StaticResource Name}" Template="{DynamicResource HeaderedTextbox}" Content="{Binding SelectedCategory.Name, Mode=TwoWay}" Tag="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanNew}"/>
+            <HeaderedContentControl Grid.Row="0" Header="{StaticResource Name}" Template="{DynamicResource HeaderedTextboxRequired}" Content="{Binding SelectedCategory.Name, Mode=TwoWay}" Tag="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanNew}"/>
         </Grid>
     </Grid>
 </Page>

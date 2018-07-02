@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using RateThisStuff_Client.RateThisStuffServiceReference;
 using RateThisStuff_Client.ViewModels;
@@ -21,28 +22,43 @@ namespace RateThisStuff_Client.Controllers
 
         public async void LoadData()
         {
-            SessionProvider.Current.CanNew = true;
-            SessionProvider.Current.CanEditAndDelete = false;
-            SessionProvider.Current.CanSave = false;
-            _viewModel.Categories = await SessionProvider.Current.Proxy.GetAllCategoriesAsync();
+            try
+            {
+                _viewModel.Categories = await SessionProvider.Current.Proxy.GetAllCategoriesAsync();
+                SessionProvider.Current.CanNew = true;
+                SessionProvider.Current.CanEditAndDelete = false;
+                SessionProvider.Current.CanSave = false;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Daten konnten nicht geladen werden", "Fehler");
+            }
         }
 
         public void ExecuteDeleteCommand(object obj)
         {
-            bool deleted = false;
-            MessageBoxResult result = MessageBox.Show("Soll diese Kategorie wirklich gelöscht werden?\n Alle Items zu dieser Kategorie werden ebenfalls gelöscht", "Kategorie löschen",
-                MessageBoxButton.YesNo);
-            if (result == MessageBoxResult.Yes)
+            try
             {
-                deleted = SessionProvider.Current.Proxy.DeleteCategoryAsync(_viewModel.SelectedCategory).Result;
-            }
+                bool deleted = false;
+                MessageBoxResult result = MessageBox.Show("Soll diese Kategorie wirklich gelöscht werden?\n Alle Items zu dieser Kategorie werden ebenfalls gelöscht", "Kategorie löschen",
+                    MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    deleted = SessionProvider.Current.Proxy.DeleteCategoryAsync(_viewModel.SelectedCategory).Result;
+                }
 
-            if (deleted)
-            {
-                MessageBox.Show("Die Kategorie wurde erfolgreich gelöscht.", "Löschen erfolgreich");
-                LoadData();
+                if (deleted)
+                {
+                    MessageBox.Show("Die Kategorie wurde erfolgreich gelöscht.", "Löschen erfolgreich");
+                    SessionProvider.Current.Category = null;
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Die Kategorie konnte nicht gelöscht werden", "Löschen fehlgeschlagen");
+                }
             }
-            else
+            catch (Exception e)
             {
                 MessageBox.Show("Die Kategorie konnte nicht gelöscht werden", "Löschen fehlgeschlagen");
             }
@@ -65,10 +81,28 @@ namespace RateThisStuff_Client.Controllers
 
         public void ExecuteSaveCommand(object obj)
         {
-            SessionProvider.Current.Proxy.SaveOrUpdateCategoryAsync(_viewModel.SelectedCategory);
-            SessionProvider.Current.CanNew = true;
-            SessionProvider.Current.CanSave = false;
-            LoadData();
+            try
+            {
+                var nameInput = _viewModel.SelectedCategory.Name;
+                if (nameInput == null || nameInput.Equals(String.Empty))
+                {
+                    MessageBox.Show("Gib einen Namen für die Kategorie ein!");
+                    return;
+                }
+                bool success = SessionProvider.Current.Proxy.SaveOrUpdateCategoryAsync(_viewModel.SelectedCategory).Result;
+                if (success)
+                {
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Es existiert bereits eine Kategorie mit diesem Namen", "Speichern fehlgeschlagen");
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Die Kategorie konnte nicht gespeichert werden.\n Überprüfe, ob alle erforderlichen Felder ausgefüllt sind", "Speichern fehlgeschlagen");
+            }
         }
     }
 }

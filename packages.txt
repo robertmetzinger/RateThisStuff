@@ -1,0 +1,5 @@
+BCrypt.Net-Next.2.1.3 (Server + Tests)
+MSTest.TestAdapter.1.3.2 (Tests)
+MSTest.TestFramework.1.3.2 (Tests)
+QuickConverter.1.2.5 (Client)
+System.Data.SQLite.Core.1.0.108.0 (Server)

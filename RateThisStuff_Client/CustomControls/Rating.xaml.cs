@@ -307,7 +307,7 @@ namespace RateThisStuff_Client.CustomControls
             stackPanelStars.Children.Clear();
 
             int value = 1;
-            
+
 
             for (int i = 0; i < Maximum; i++)
             {
@@ -319,15 +319,17 @@ namespace RateThisStuff_Client.CustomControls
                 star.StateChanged += star_StateChanged;
                 star.MouseEnter += star_MouseEnter;
                 star.MouseLeave += star_MouseLeave;
-                
                 value++;
 
                 stackPanelStars.Children.Insert(i, star);
             }
 
-            Star lastStar = (Star) stackPanelStars.Children[Maximum-1];
-            star_MouseEnter(lastStar,null);
-            star_MouseLeave(lastStar,null);
+            int initValue = Value;
+            foreach (Star star in stackPanelStars.Children)
+            {
+                Value = initValue;
+                if ((int)star.Tag <= Value) star.State = StarState.On;
+            }
         }
 
         private void EnableStateChange(Star str)

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using RateThisStuff_Client.Framework;
 using RateThisStuff_Client.RateThisStuffServiceReference;
 using RateThisStuff_Client.ViewModels;
@@ -13,15 +14,22 @@ namespace RateThisStuff_Client.Controllers
 
         public async void ExecuteRateCommand(object obj)
         {
-            Rating rating = new Rating();
-            rating.User = SessionProvider.Current.User;
-            rating.Item = _viewModel.Item;
-            rating.Score = _viewModel.Score;
-            rating.Comment = _viewModel.Comment;
-            bool created = await SessionProvider.Current.Proxy.SaveOrUpdateRatingAsync(rating);
-            if (!created)
+            try
+            {
+                Rating rating = new Rating();
+                rating.User = SessionProvider.Current.User;
+                rating.Item = _viewModel.Item;
+                rating.Score = _viewModel.Score;
+                rating.Comment = _viewModel.Comment;
+                bool created = await SessionProvider.Current.Proxy.SaveOrUpdateRatingAsync(rating);
+                if (!created)
+                    MessageBox.Show("Beim Erstellen der Bewertung ist ein Fehler aufgetreten", "Bewerten fehlgeschlagen");
+                _view.Close();
+            }
+            catch (Exception e)
+            {
                 MessageBox.Show("Beim Erstellen der Bewertung ist ein Fehler aufgetreten", "Bewerten fehlgeschlagen");
-            _view.Close();
+            }
         }
 
         public void Initialize(Item item)

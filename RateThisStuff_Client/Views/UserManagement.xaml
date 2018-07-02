@@ -31,9 +31,9 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <HeaderedContentControl Grid.Row="0" Header="Benutzername" Template="{DynamicResource HeaderedTextbox}" Content="{Binding SelectedUser.Username, Mode=TwoWay}" Tag="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanNew}"/>
+                <HeaderedContentControl Grid.Row="0" Header="Benutzername" Template="{DynamicResource HeaderedTextboxRequired}" Content="{Binding SelectedUser.Username, Mode=TwoWay}" Tag="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanNew}"/>
                 <HeaderedContentControl Grid.Row="1" Header="Vorname" Template="{DynamicResource HeaderedTextbox}" Content="{Binding SelectedUser.Firstname, Mode=TwoWay}" Tag="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanNew}"/>
-                <HeaderedContentControl Grid.Row="2" Header="Nachname" Template="{DynamicResource HeaderedTextbox}" Content="{Binding SelectedUser.Lastname, Mode=TwoWay}" Tag="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanNew}"/>
+                <HeaderedContentControl Grid.Row="2" Header="Nachname" Template="{DynamicResource HeaderedTextboxRequired}" Content="{Binding SelectedUser.Lastname, Mode=TwoWay}" Tag="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanNew}"/>
                 <CheckBox Grid.Row="3" Content="Administrator" Margin="5" VerticalAlignment="Center" IsChecked="{Binding SelectedUser.IsAdmin, Mode=TwoWay}" IsEnabled="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanSave}"/>
             </Grid>
         </GroupBox>

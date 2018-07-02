@@ -30,6 +30,10 @@
                 <RowDefinition/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
+            <StackPanel Grid.ColumnSpan="2">
+                <TextBlock Text="Ausgewählte Kategorie:"/>
+                <TextBlock Text="{Binding Source={x:Static client:SessionProvider.Current}, Path=Category.Name}"/>
+            </StackPanel>
             <StackPanel Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2">
                 <Button HorizontalAlignment="Right" Background="Transparent" BorderBrush="Transparent" Command="{Binding LogoutCommand}">
                     <StackPanel Orientation="Horizontal">
@@ -38,7 +42,7 @@
                 </Button>
                 <TextBlock HorizontalAlignment="Right">
                 <Run Text="Eingeloggt als:"/>
-                <Run Text="{Binding Username}"/>
+                <Run Text="{Binding Source={x:Static client:SessionProvider.Current}, Path=User.Username}"/>
                 </TextBlock>
             </StackPanel>
             <Button Grid.Row="1" Grid.Column="0" Command="{Binding NewCommand}" IsEnabled="{Binding Source={x:Static client:SessionProvider.Current}, Path=CanNew, Mode=TwoWay}">
@@ -80,8 +84,8 @@
                 <ListBoxItem Content="{StaticResource MostRatedPageName}" IsEnabled="{qc:Binding '$P != null', P={Binding Source={x:Static client:SessionProvider.Current}, Path=Category}}"/>
                 <ListBoxItem Content=""/>
             </ListBox>
-            <Label Grid.Row="1" Content="{StaticResource Administration}" Visibility="{Binding Path=IsAdmin, Converter={StaticResource VisibilityConverter}}"/>
-            <ListBox Grid.Row="2" Grid.Column="0" SelectedItem="{Binding NavigationItem}" Visibility="{Binding Path=IsAdmin, Converter={StaticResource VisibilityConverter}}">
+            <Label Grid.Row="1" Content="{StaticResource Administration}" Visibility="{Binding Source={x:Static client:SessionProvider.Current}, Path=User.IsAdmin, Converter={StaticResource VisibilityConverter}}"/>
+            <ListBox Grid.Row="2" Grid.Column="0" SelectedItem="{Binding NavigationItem}" Visibility="{Binding Source={x:Static client:SessionProvider.Current}, Path=User.IsAdmin, Converter={StaticResource VisibilityConverter}}">
                 <ListBoxItem Content="{StaticResource UserManagementPageName}"/>
                 <ListBoxItem Content="{StaticResource CategoriesPageName}"/>
                 <ListBoxItem Content=""/>

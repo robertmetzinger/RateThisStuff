@@ -2,6 +2,6 @@
 {
     public static class SessionProvider
     {
-        public static Session Current { get; } = new Session();
+        public static Session Current { get; set; } = new Session();
     }
 }

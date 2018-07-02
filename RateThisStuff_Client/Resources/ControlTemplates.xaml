@@ -24,6 +24,40 @@
             </ContentControl>
         </Grid>
     </ControlTemplate>
+    <ControlTemplate x:Key="HeaderedTextboxRequired" TargetType="HeaderedContentControl">
+        <Grid MaxHeight="40">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <ContentControl Content="*" Foreground="Red" IsTabStop="False" FontSize="18"/>
+            <ContentControl Content="{TemplateBinding Header}" Grid.Row="0" Grid.Column="1" FontSize="18" Foreground="#FF4767AE" IsTabStop="False"/>
+            <ContentControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" IsTabStop="False">
+                <TextBox Text="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}" BorderThickness="0,0,0,1" VerticalContentAlignment="Bottom" IsTabStop="True" IsReadOnly="{Binding Tag, RelativeSource={RelativeSource TemplatedParent}}"/>
+            </ContentControl>
+        </Grid>
+    </ControlTemplate>
+    <ControlTemplate x:Key="HeaderedPasswordBoxRequired" TargetType="HeaderedContentControl">
+        <Grid MaxHeight="40">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <ContentControl Content="*" Foreground="Red" IsTabStop="False" FontSize="18"/>
+            <ContentControl Content="{TemplateBinding Header}" Grid.Row="0" Grid.Column="1" FontSize="18" Foreground="#FF4767AE" IsTabStop="False"/>
+            <ContentControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" IsTabStop="False">
+                <PasswordBox x:Name="InnerPasswordBox"  BorderThickness="0,0,0,1" VerticalContentAlignment="Bottom" IsTabStop="True"/>
+            </ContentControl>
+        </Grid>
+    </ControlTemplate>
     <ControlTemplate x:Key="HeaderedCommentBox" TargetType="HeaderedContentControl">
         <Grid>
             <Grid.RowDefinitions>

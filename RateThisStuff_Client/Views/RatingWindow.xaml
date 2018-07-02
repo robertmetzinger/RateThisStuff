@@ -20,7 +20,7 @@
         </Grid.RowDefinitions>
         <TextBlock Text="{Binding Item.Name}" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Viewbox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
-            <customControls:Rating Value="{Binding Path=Score, Mode=TwoWay}"/>
+            <customControls:Rating Value="{Binding Path=Score, Mode=TwoWay}" Minimum="1"/>
         </Viewbox>
         <HeaderedContentControl Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,0,10" Template="{StaticResource HeaderedCommentBox}" Header="{StaticResource Comment}" Content="{Binding Path=Comment, Mode=TwoWay}"/>
         <Button Grid.Row="3" Grid.Column="0" Command="{Binding RateCommand}">
